@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
+#include "graphics.h"
 
 void parse_input(std::vector <std::string> &arguments, std::string input_text){
 
@@ -19,6 +21,7 @@ void parse_input(std::vector <std::string> &arguments, std::string input_text){
 
 
 void f_echo(std::vector <std::string> arguments){
+
     if (arguments.size() < 2){
         std::cout << "usage: " << arguments[0] << " [text to print] \n";
     }
@@ -34,10 +37,12 @@ void f_echo(std::vector <std::string> arguments){
 }
 
 void f_clear(){
-    std::cout << "\033[H\033[J";
+    std::cout << "\033[H\033[J";    
 }
 
 int main(){
+
+    image img(50, 50);
 
     while(true){
 
@@ -53,6 +58,7 @@ int main(){
         if (arguments[0] == "exit" && arguments.size() == 1) return 0;
         else if (arguments[0] == "echo") f_echo(arguments);
         else if (arguments[0] == "clear" && arguments.size() == 1) f_clear();
+        else if (arguments[0] == "save" && arguments.size() == 1) save_to_ppm();
         else std::cout << "Command " << arguments[0] << " not found!";
 
     }
