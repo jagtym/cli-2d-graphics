@@ -1,1 +1,1 @@
-# cli-2g-graphics
+# cli-2d-graphics
