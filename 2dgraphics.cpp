@@ -58,7 +58,10 @@ int main(){
         if (arguments[0] == "exit" && arguments.size() == 1) return 0;
         else if (arguments[0] == "echo") f_echo(arguments);
         else if (arguments[0] == "clear" && arguments.size() == 1) f_clear();
-        else if (arguments[0] == "save" && arguments.size() == 1) save_to_ppm();
+        else if (arguments[0] == "save" && arguments.size() == 1){
+            std::cout << "Saved image! \n";
+            save_to_ppm(img, "image.ppm"); 
+        } 
         else std::cout << "Command " << arguments[0] << " not found!";
 
     }
